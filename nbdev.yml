@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "koui"
+  site-url: "https://nakamura196.github.io/koui"
+  description: ""
+  repo-branch: main
+  repo-url: "https://github.com/nakamura196/koui"
