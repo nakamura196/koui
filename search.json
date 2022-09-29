@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "校異情報ライブラリ",
+    "section": "",
+    "text": "# rm -rf koui*\n# pip install -e '.[dev]'\n日本語のマニュアルは以下です。\nhttps://zenn.dev/nakamura196/articles/442da1c74afae1"
+  },
+  {
+    "objectID": "index.html#install",
+    "href": "index.html#install",
+    "title": "校異情報ライブラリ",
+    "section": "Install",
+    "text": "Install\npip install koui"
+  },
+  {
+    "objectID": "index.html#how-to-use",
+    "href": "index.html#how-to-use",
+    "title": "校異情報ライブラリ",
+    "section": "How to use",
+    "text": "How to use\nSee the documentation for full details of the Omeka API Client.\n\nfrom koui.api import KouiAPIClient"
+  },
+  {
+    "objectID": "index.html#比較するテキストの名前とテキストを入力してください",
+    "href": "index.html#比較するテキストの名前とテキストを入力してください",
+    "title": "校異情報ライブラリ",
+    "section": "比較するテキストの名前とテキストを入力してください。",
+    "text": "比較するテキストの名前とテキストを入力してください。\n\nname_1 = \"中村式五十音\"\ntext_1 = '''あいうえお\nかきくけこ\nさしすせそ\nたちぬてと'''\n\n\nname_2 = \"中村式五十音又様\"\ntext_2 = '''あいうえお\nこけきくか\nさしすせそ\nたじづてと'''\n\n\n\nKouiAPIClient.convert\n\n KouiAPIClient.convert (name_1, text_1, name_2, text_2, output='html')\n\n2つのテキストを比較して、xmlまたはhtmlを出力する\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\nname_1\nstr\n\nテキスト1の名前\n\n\ntext_1\nstr\n\nテキスト1\n\n\nname_2\nstr\n\nテキスト2の名前\n\n\ntext_2\nstr\n\nテキスト2\n\n\noutput\nstr\nhtml\n出力形式(xmlまたはhtml), by default “html”\n\n\nReturns\nbs4.BeautifulSoup\n\nxmlまたはhtml\n\n\n\n\n\n\nKouiAPIClient.save\n\n KouiAPIClient.save (soup, path)\n\nxmlまたはhtmlを保存する\n\n\n\n\nType\nDetails\n\n\n\n\nsoup\nbs4.BeautifulSoup\nxmlまたはhtml\n\n\npath\nstr\n保存先\n\n\n\n\nsoup = KouiAPIClient.convert(name_1, text_1, name_2, text_2, \"html\")\nKouiAPIClient.save(soup, 'examples/out.html')"
+  },
+  {
+    "objectID": "api.html",
+    "href": "api.html",
+    "title": "api",
+    "section": "",
+    "text": "KouiAPIClient\n\n KouiAPIClient ()\n\n校異情報ライブラリ\n\n\n\nKouiAPIClient.convert\n\n KouiAPIClient.convert (name_1, text_1, name_2, text_2, output='html')\n\n2つのテキストを比較して、xmlまたはhtmlを出力する\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\nname_1\nstr\n\nテキスト1の名前\n\n\ntext_1\nstr\n\nテキスト1\n\n\nname_2\nstr\n\nテキスト2の名前\n\n\ntext_2\nstr\n\nテキスト2\n\n\noutput\nstr\nhtml\n出力形式(xmlまたはhtml), by default “html”\n\n\nReturns\nbs4.BeautifulSoup\n\nxmlまたはhtml\n\n\n\n\n\n\nKouiAPIClient.save\n\n KouiAPIClient.save (soup, path)\n\nxmlまたはhtmlを保存する\n\n\n\n\nType\nDetails\n\n\n\n\nsoup\nbs4.BeautifulSoup\nxmlまたはhtml\n\n\npath\nstr\n保存先"
+  }
+]
