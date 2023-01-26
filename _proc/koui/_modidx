@@ -7,7 +7,11 @@ d = { 'settings': { 'branch': 'main',
                 'lib_path': 'koui'},
   'syms': { 'koui.api': { 'koui.api.KouiAPIClient': ('api.html#kouiapiclient', 'koui/api.py'),
                           'koui.api.KouiAPIClient.__init__': ('api.html#kouiapiclient.__init__', 'koui/api.py'),
+                          'koui.api.KouiAPIClient.compare': ('api.html#kouiapiclient.compare', 'koui/api.py'),
                           'koui.api.KouiAPIClient.convert': ('api.html#kouiapiclient.convert', 'koui/api.py'),
+                          'koui.api.KouiAPIClient.convertJson2Df': ('api.html#kouiapiclient.convertjson2df', 'koui/api.py'),
                           'koui.api.KouiAPIClient.export_html': ('api.html#kouiapiclient.export_html', 'koui/api.py'),
                           'koui.api.KouiAPIClient.export_xml': ('api.html#kouiapiclient.export_xml', 'koui/api.py'),
-                          'koui.api.KouiAPIClient.save': ('api.html#kouiapiclient.save', 'koui/api.py')}}}
+                          'koui.api.KouiAPIClient.format_xml_from_soup': ('api.html#kouiapiclient.format_xml_from_soup', 'koui/api.py'),
+                          'koui.api.KouiAPIClient.save': ('api.html#kouiapiclient.save', 'koui/api.py'),
+                          'koui.api.KouiAPIClient.saveAsExcel': ('api.html#kouiapiclient.saveasexcel', 'koui/api.py')}}}

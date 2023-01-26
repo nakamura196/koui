@@ -121,6 +121,9 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#kouiapiclient" id="toc-kouiapiclient" class="nav-link active" data-scroll-target="#kouiapiclient">KouiAPIClient</a></li>
   <li><a href="#kouiapiclient.convert" id="toc-kouiapiclient.convert" class="nav-link" data-scroll-target="#kouiapiclient.convert">KouiAPIClient.convert</a></li>
   <li><a href="#kouiapiclient.save" id="toc-kouiapiclient.save" class="nav-link" data-scroll-target="#kouiapiclient.save">KouiAPIClient.save</a></li>
+  <li><a href="#kouiapiclient.compare" id="toc-kouiapiclient.compare" class="nav-link" data-scroll-target="#kouiapiclient.compare">KouiAPIClient.compare</a></li>
+  <li><a href="#kouiapiclient.convertjson2df" id="toc-kouiapiclient.convertjson2df" class="nav-link" data-scroll-target="#kouiapiclient.convertjson2df">KouiAPIClient.convertJson2Df</a></li>
+  <li><a href="#kouiapiclient.saveasexcel" id="toc-kouiapiclient.saveasexcel" class="nav-link" data-scroll-target="#kouiapiclient.saveasexcel">KouiAPIClient.saveAsExcel</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nakamura196/koui/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -238,6 +241,91 @@ ul.task-list li input[type="checkbox"] {
 <td>path</td>
 <td>str</td>
 <td>保存先</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="kouiapiclient.compare" class="level3">
+<h3 class="anchored" data-anchor-id="kouiapiclient.compare">KouiAPIClient.compare</h3>
+<blockquote class="blockquote">
+<pre><code> KouiAPIClient.compare (path, output_text=False)</code></pre>
+</blockquote>
+<p>編集距離を算出する</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>path</td>
+<td>str</td>
+<td></td>
+<td>app要素を含むxmlファイルのパス</td>
+</tr>
+<tr class="even">
+<td>output_text</td>
+<td>bool</td>
+<td>False</td>
+<td>method=“distance”,</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="kouiapiclient.convertjson2df" class="level3">
+<h3 class="anchored" data-anchor-id="kouiapiclient.convertjson2df">KouiAPIClient.convertJson2Df</h3>
+<blockquote class="blockquote">
+<pre><code> KouiAPIClient.convertJson2Df (res)</code></pre>
+</blockquote>
+<p>編集距離を算出結果をpandas.DataFrameに変換する</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Type</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>res</td>
+<td>list</td>
+<td>編集距離の結果</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="kouiapiclient.saveasexcel" class="level3">
+<h3 class="anchored" data-anchor-id="kouiapiclient.saveasexcel">KouiAPIClient.saveAsExcel</h3>
+<blockquote class="blockquote">
+<pre><code> KouiAPIClient.saveAsExcel (res, output_path)</code></pre>
+</blockquote>
+<p>編集距離を算出結果をExcelファイルに保存する</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Type</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>res</td>
+<td>list</td>
+<td>編集距離の結果</td>
+</tr>
+<tr class="even">
+<td>output_path</td>
+<td>str</td>
+<td>Excelファイルの出力パス</td>
 </tr>
 </tbody>
 </table>

@@ -6,6 +6,10 @@ __all__ = ['KouiAPIClient']
 # %% ../api.ipynb 3
 import difflib
 import bs4
+import xml.dom.minidom
+import copy
+import Levenshtein
+from pandas import json_normalize
 
 class KouiAPIClient:
   '''
@@ -299,6 +303,10 @@ class KouiAPIClient:
     else:
         return koui.export_html(configs)
 
+  @staticmethod
+  def format_xml_from_soup(xml_string):
+      dom = xml.dom.minidom.parseString(xml_string)
+      return dom.toprettyxml()
   
   @staticmethod
   def save(soup, path):
@@ -314,6 +322,108 @@ class KouiAPIClient:
     """
 
     with open(path, "w") as f:
-        f.write(str(soup))
+      xml_string = str(soup)
+      xml_string = xml_string.replace("xmlns:=", "xmlns=")
+      # f.write(KouiAPIClient.format_xml_from_soup(xml_string))
+      f.write(xml_string)
 
-    
+  @staticmethod
+  def compare(path, output_text=False, ): # method="distance", 
+    """
+    編集距離を算出する
+
+    Parameters
+    ----------
+    path : str  
+        app要素を含むxmlファイルのパス  
+    """
+    with open(path) as doc:
+      doc_text = doc.read()
+    soup = bs4.BeautifulSoup(doc_text, 'xml')
+
+    wits = soup.find_all("witness")
+    items = {}
+    for wit in wits:
+      items[wit["xml:id"]] = wit.text
+
+    texts = {}
+
+    body = soup.find("body")
+
+    for w in items:
+      w_soup = bs4.BeautifulSoup(str(soup), 'xml')
+      w_body = w_soup.find("body")
+      for app in w_body.find_all("app"):
+        for e in ["lem", "rdg"]:
+          for i in app.find_all(e):
+            if ("#" + w) not in i["wit"]:
+              i.decompose()
+
+      w_text = w_body.text.strip()
+      texts[w] = w_text
+
+    results = []
+
+    finished = []
+
+    for w1 in items:
+      for w2 in items:
+        if w1 != w2 and w2 not in finished:
+
+          # if method == "distance":
+          distance = Levenshtein.distance(texts[w1], texts[w2])
+          ratio = Levenshtein.ratio(texts[w1], texts[w2])
+
+          '''
+          elif method == "ratio":
+            
+          else:
+            raise Exception("method must be 'distance' or 'ratio'")
+          '''
+
+          res = {
+            "name1": items[w1],
+            # "text1": texts[w1],
+            "name2": items[w2],
+            # "text2": texts[w2],
+            "distance": distance,
+            "ratio": ratio,
+          }
+
+          if output_text:
+            res["text1"] = texts[w1]
+            res["text2"] = texts[w2]
+
+          results.append(res)
+
+      finished.append(w1)
+
+    return results
+
+  @staticmethod
+  def convertJson2Df(res):
+    """
+    編集距離を算出結果をpandas.DataFrameに変換する
+
+    Parameters
+    ----------
+    res : list  
+        編集距離の結果  
+    """
+    return json_normalize(res)
+
+  @staticmethod
+  def saveAsExcel(res, output_path):
+    """
+    編集距離を算出結果をExcelファイルに保存する
+
+    Parameters
+    ----------
+    res : list  
+        編集距離の結果  
+    output_path : str  
+        Excelファイルの出力パス  
+    """
+    df = json_normalize(res)
+    df.to_excel(output_path,
+            index=False)

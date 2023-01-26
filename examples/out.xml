@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-model href="https://raw.githubusercontent.com/ldasjp8/tei-example/main/tei_all.rng" schematypens="http://relaxng.org/ns/structure/1.0" type="application/xml"?><TEI xmlns="http://www.tei-c.org/ns/1.0">
+<teiHeader>
+<fileDesc>
+<titleStmt>
+<title>Title</title>
+</titleStmt>
+<publicationStmt>
+<p>Publication</p>
+</publicationStmt>
+<sourceDesc>
+<listWit><witness xml:id="t1">中村式五十音</witness><witness xml:id="t2">中村式五十音又様</witness></listWit>
+</sourceDesc>
+</fileDesc>
+</teiHeader>
+<text>
+<body>
+<p>あいうえお<lb/><app xml:id="a1"><lem wit="#t1">か</lem><rdg wit="#t2">こけ</rdg></app>きく<app xml:id="a2"><lem wit="#t1">けこ</lem><rdg wit="#t2">か</rdg></app><lb/>さしすせそ<lb/>た<app xml:id="a3"><lem wit="#t1">ちぬ</lem><rdg wit="#t2">じづ</rdg></app>てと<app xml:id="a4"><lem wit="#t1"/><rdg wit="#t2"/></app></p></body>
+</text>
+</TEI>
